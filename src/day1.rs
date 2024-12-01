@@ -1,6 +1,5 @@
-fn read_and_parse_and_sort_lists() -> (Vec<usize>, Vec<usize>) {
-    // grab the input and validate it
-    let input = include_bytes!("../inputs/day1.txt");
+fn read_and_parse_and_sort_lists(input: &[u8]) -> (Vec<usize>, Vec<usize>) {
+    // validate the input
     let maybe_last_char = input.last();
     if let None = maybe_last_char {
         panic!("Empty input");
@@ -35,9 +34,9 @@ fn read_and_parse_and_sort_lists() -> (Vec<usize>, Vec<usize>) {
     (left, right)
 }
 
-pub fn a() {
+pub fn a(input: &[u8]) -> usize {
     // read, parse, and sort the lists
-    let (left, right) = read_and_parse_and_sort_lists();
+    let (left, right) = read_and_parse_and_sort_lists(input);
 
     // zip the two lists together and calculate the difference between each pair and sum them up
     let mut total_difference = 0;
@@ -46,12 +45,12 @@ pub fn a() {
         total_difference += difference;
     }
 
-    println!("Day 1a: {}", total_difference);
+    total_difference
 }
 
-pub fn b() {
+pub fn b(input: &[u8]) -> usize {
     // read, parse, and sort the lists
-    let (left, right) = read_and_parse_and_sort_lists();
+    let (left, right) = read_and_parse_and_sort_lists(input);
 
     // "crab-walk" through both sorted lists, counting occurrences of each number and
     // applying the similarity score calculation
@@ -67,12 +66,14 @@ pub fn b() {
             }
             let right_end = right_offset;
             let right_count = right_end - right_start;
-            let similarity = left_current * right_count;
-            total_similarity += similarity;
-            left_offset += 1;
+            let right_similarity = left_current * right_count;
+            let left_start = left_offset;
             while left_offset < left.len() && left[left_offset] == left_current {
                 left_offset += 1;
             }
+            let left_end = left_offset;
+            let left_count = left_end - left_start;
+            total_similarity += right_similarity * left_count;
         } else if left[left_offset] < right[right_offset] {
             left_offset += 1;
         } else {
@@ -80,5 +81,52 @@ pub fn b() {
         }
     }
 
-    println!("Day 1b: {}", total_similarity);
+    total_similarity
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_day1a() {
+        // given ...
+        let input_str = vec![
+            "30000   40000",
+            "40000   30000",
+            "20000   50000",
+            "10000   30000",
+            "30000   90000",
+            "30000   30000",
+            ""
+        ].join("\n");
+        let input = input_str.as_bytes();
+
+        // when ...
+        let result = a(input);
+
+        // then ...
+        assert_eq!(result, 110000);
+    }
+
+    #[test]
+    fn test_day1b() {
+        // given ...
+        let input_str = vec![
+            "30000   40000",
+            "40000   30000",
+            "20000   50000",
+            "10000   30000",
+            "30000   90000",
+            "30000   30000",
+            ""
+        ].join("\n");
+        let input = input_str.as_bytes();
+
+        // when ...
+        let result = b(input);
+
+        // then ...
+        assert_eq!(result, 310000);
+    }
 }

@@ -98,8 +98,9 @@ mod tests {
             "10000   30000",
             "30000   90000",
             "30000   30000",
-            ""
-        ].join("\n");
+            "",
+        ]
+        .join("\n");
         let input = input_str.as_bytes();
 
         // when ...
@@ -119,8 +120,9 @@ mod tests {
             "10000   30000",
             "30000   90000",
             "30000   30000",
-            ""
-        ].join("\n");
+            "",
+        ]
+        .join("\n");
         let input = input_str.as_bytes();
 
         // when ...

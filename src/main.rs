@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     println!("Day1a: {}", day1::a(include_bytes!("../inputs/day1.txt")));
@@ -15,4 +16,7 @@ fn main() {
 
     println!("Day4a: {}", day4::a(include_bytes!("../inputs/day4.txt")));
     println!("Day4b: {}", day4::b(include_bytes!("../inputs/day4.txt")));
+
+    println!("Day5a: {}", day5::a(include_bytes!("../inputs/day5.txt")));
+    println!("Day5b: {}", day5::b(include_bytes!("../inputs/day5.txt")));
 }

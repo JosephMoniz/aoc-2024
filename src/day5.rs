@@ -39,10 +39,7 @@ fn parse_input(input: &[u8]) -> (HashMap<usize, Vec<Ordering>>, Vec<Vec<usize>>)
     (ordering, updates)
 }
 
-fn is_update_sequence_correct(
-    ordering: &HashMap<usize, Vec<Ordering>>,
-    updates: &[usize],
-) -> bool {
+fn is_update_sequence_correct(ordering: &HashMap<usize, Vec<Ordering>>, updates: &[usize]) -> bool {
     for (position, &update) in updates.iter().enumerate() {
         let rules = ordering.get(&update).unwrap();
         for preceding_position in 0..position {
@@ -130,7 +127,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_day1a() {
+    fn test_day5a() {
         // given ...
         let input_str = vec![
             "47|53",
@@ -173,7 +170,7 @@ mod tests {
     }
 
     #[test]
-    fn test_day1b() {
+    fn test_day5b() {
         // given ...
         let input_str = vec![
             "47|53",

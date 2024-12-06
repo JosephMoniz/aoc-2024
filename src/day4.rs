@@ -223,7 +223,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_day1a() {
+    fn test_day4a() {
         // given ...
         let input_str = vec![
             "MMMSXXMASM",
@@ -248,7 +248,7 @@ mod tests {
     }
 
     #[test]
-    fn test_day1b() {
+    fn test_day4b() {
         // given ...
         let input_str = vec![
             "MMMSXXMASM",

@@ -156,7 +156,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_day1a() {
+    fn test_day2a() {
         // given ...
         let input_str = vec![
             "7 6 4 2 1",
@@ -177,7 +177,7 @@ mod tests {
     }
 
     #[test]
-    fn test_day1b() {
+    fn test_day2b() {
         // given ...
         let input_str = vec![
             "7 6 4 2 1",

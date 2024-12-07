@@ -20,7 +20,7 @@ pub fn find_starting_position(grid: &[&[u8]]) -> Option<(usize, usize)> {
 }
 
 pub fn trace_original_path(grid: &[&[u8]]) -> (usize, Vec<Vec<bool>>) {
-    let (mut x, mut y) = find_starting_position(grid.deref()).unwrap();
+    let (mut x, mut y) = find_starting_position(grid).unwrap();
     let mut visited = vec![vec![false; grid[0].len()]; grid.len()];
     let mut direction = Direction::North;
     let mut unique_coords = 0;

@@ -1,7 +1,4 @@
-fn slice_to_usize(slice: &[u8]) -> usize {
-    let str = unsafe { std::str::from_utf8_unchecked(slice) };
-    str.parse::<usize>().unwrap()
-}
+use crate::common::slice_to_usize;
 
 fn is_safe_decreasing(previous: usize, current: usize) -> bool {
     current < previous && current >= previous.saturating_sub(3)

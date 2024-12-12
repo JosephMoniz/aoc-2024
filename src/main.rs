@@ -2,6 +2,7 @@ mod common;
 mod day1;
 mod day10;
 mod day11;
+mod day12;
 mod day2;
 mod day3;
 mod day4;
@@ -55,5 +56,14 @@ fn main() {
     println!(
         "Day11b: {}",
         day11::b(include_bytes!("../inputs/day11.txt"))
+    );
+
+    println!(
+        "Day12a: {}",
+        day12::a(include_bytes!("../inputs/day12.txt"))
+    );
+    println!(
+        "Day12b: {}",
+        day12::b(include_bytes!("../inputs/day12.txt"))
     );
 }

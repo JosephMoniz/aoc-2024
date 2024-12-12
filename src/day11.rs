@@ -114,6 +114,6 @@ mod tests {
         let result = b(input);
 
         // then ...
-        assert_eq!(result, 55312);
+        assert_eq!(result, 65601038650482);
     }
 }
